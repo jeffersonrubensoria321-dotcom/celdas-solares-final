@@ -1,0 +1,64 @@
+CELDAS SOLARES - PROBLEMA 2.3 - SEMILLA 1
+
+La semilla del equipo es (4+5+6+2+0+4) mod 10 = 1.
+Temperatura inicial 35 grados Celsius. Espesor fijo 100 micrometros.
+
+INICIO SENCILLO (WINDOWS)
+Vuelve a ejecutar el archivo iniciar_celdas.py descargado.
+No tienes que abrir ni editar los archivos de esta carpeta.
+Deja abierta la consola mientras uses la aplicacion. Ctrl+C la detiene.
+
+INICIO MANUAL (SOLO SI LO NECESITAS)
+Desde esta carpeta, con Python 3.12 instalado:
+  py -3.12 -m venv .venv
+  .venv\Scripts\python.exe -m pip install -r requirements.txt
+  .venv\Scripts\python.exe -m streamlit run app.py
+
+PUBLICAR PARA ENTREGAR AL PROFESOR
+1. En https://github.com crea una cuenta o inicia sesion.
+2. Crea un repositorio llamado celdas-solares (puede ser publico).
+3. Add file > Upload files: sube los archivos de ESTA carpeta, conservando
+   data/ y su contenido. app.py y requirements.txt deben quedar en la raiz
+   del repositorio, no dentro de otra carpeta Celdas_Solares_S1.
+   No subas entornos virtuales (.venv), credenciales ni carpetas __pycache__.
+   La carpeta .streamlit es opcional (solo aplica el tema visual).
+4. En https://share.streamlit.io inicia sesion con GitHub.
+5. Create app: elige tu repositorio, rama main y archivo app.py.
+6. En Advanced settings selecciona Python 3.12. Pulsa Deploy.
+7. Abre la URL resultante, revisa las cuatro pestanas y Validacion.
+8. En los ajustes para compartir, permite acceso publico. Comprueba el
+   enlace en una ventana de incognito antes de entregarlo.
+   Una direccion localhost solo sirve en tu computador: NO es la entrega.
+
+Documentacion: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
+
+CONTENIDO
+app.py: interfaz y controles compartidos.
+modelo.py: integracion espectral, recombinacion, diodo, cascada y temperatura.
+constantes.py: constantes, fuentes y parametros con unidades.
+animacion.py: animacion temporal conectada al balance de energia.
+test_modelo.py: pruebas de fisica y estabilidad.
+test_interfaz.py: pruebas de controles y pestañas.
+data/astmg173.xls: archivo original del curso, columna Global tilt.
+data/green2008.yml: datos medidos del silicio de Green (2008).
+data/ficha_jinko.pdf: ficha del modulo comercial comparado.
+
+ALCANCE FISICO
+El limite se reproduce mediante alta inyeccion y Auger, mas un diodo
+equivalente de idealidad 1. No es un solver completo de deriva-difusion.
+Desactivar perdidas fundamentales es un experimento pedagogico: no produce
+una celda realizable. Eg variable con optica de Si es una sensibilidad
+hipotetica. El barrido termico usa Eg(T) de silicio y conserva los parametros
+opticos y de coleccion; no se modela su dependencia termica completa.
+Estos supuestos tambien aparecen en la aplicacion.
+
+El boton Ver limite ideal del curso fija Eg=1.12 eV y desactiva perdidas
+adicionales y temperatura para reproducir el caso de referencia a 300 K.
+El boton Restablecer mi escenario recupera 35 grados y semilla 1.
+
+V7 no tiene tolerancia de coincidencia: exige reportar, citar y discutir
+la comparacion con el modulo. No confundir su veredicto documental con
+una validacion experimental del modelo.
+
+No se incluyen RUT completos ni nombres inventados. No se utiliza solcore.
+El uso de IA se declara en la pestana Validacion conforme al enunciado.
